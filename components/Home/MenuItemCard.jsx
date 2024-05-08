@@ -5,6 +5,8 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import { Image } from "expo-image";
+import { fonts } from "../../constants/fonts";
+import { colorScheme1 } from "../../constants/colors";
 
 const MenuItemCard = () => {
   return (
@@ -19,20 +21,20 @@ const MenuItemCard = () => {
       </View>
       <View style={styles.right}>
         <View style={styles.title}>
-          <Text>Domino Pizza</Text>
+          <Text style={styles.titleText}>Domino Pizza</Text>
         </View>
         <View style={styles.subTitle}>
-          <Text>Pizza</Text>
+          <Text style={styles.subTitleText}>Pizza</Text>
         </View>
         <View style={styles.description}>
           <View style={styles.descItem}>
-            <Text>4.5/5</Text>
+            <Text style={styles.descItemText}>4.5/5</Text>
           </View>
           <View style={styles.descItem}>
-            <Text>$5</Text>
+            <Text style={styles.descItemText}>$5</Text>
           </View>
           <View style={styles.descItem}>
-            <Text>35 min</Text>
+            <Text style={styles.descItemText}>25 min</Text>
           </View>
         </View>
       </View>
@@ -44,14 +46,18 @@ export default MenuItemCard;
 
 const styles = StyleSheet.create({
   container: {
-    // backgroundColor: "red",
+    backgroundColor: colorScheme1.mode4,
     flexDirection: "row",
     gap: wp(3),
+    borderRadius: hp(1.2),
   },
   image: {
     width: wp(25),
     height: wp(25),
     borderRadius: wp(2),
+  },
+  left: {
+    padding: wp(1.2),
   },
   right: {
     justifyContent: "space-around",
@@ -61,5 +67,17 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     // backgroundColor: "red",
     width: wp(60),
+  },
+  titleText: {
+    fontFamily: fonts.font_500,
+    fontSize: hp(2),
+  },
+  subTitleText: {
+    fontFamily: fonts.font_400,
+    fontSize: hp(1.8),
+  },
+  descItemText: {
+    fontFamily: fonts.font_300,
+    fontSize: hp(1.8),
   },
 });

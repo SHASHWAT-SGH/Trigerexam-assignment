@@ -4,10 +4,13 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import { AntDesign } from "@expo/vector-icons";
+
 import Search from "../../components/Home/Search";
 import CousineFlatList from "../../components/Home/CousineFlatList";
 import MenuItemCard from "../../components/Home/MenuItemCard";
+import LocationDropDown from "../../components/Home/LocationDropDown";
+import { colorScheme1 } from "../../constants/colors";
+import { fonts } from "../../constants/fonts";
 
 export default Tab = () => {
   return (
@@ -15,10 +18,7 @@ export default Tab = () => {
       {/* Location View */}
       <View>
         <View style={styles.locationWrapper}>
-          <Text>1214 Hollywood Ht.</Text>
-          <View style={styles.iconContainer}>
-            <AntDesign name="down" size={12} color="black" />
-          </View>
+          <LocationDropDown />
         </View>
       </View>
       {/* Main Window */}
@@ -33,16 +33,16 @@ export default Tab = () => {
           <Search />
         </View>
         {/* Cousine */}
-        <View style={{ marginTop: wp(8) }}>
+        <View style={{ marginTop: wp(5) }}>
           <CousineFlatList />
         </View>
         {/* Tabs */}
         <View style={{ marginTop: wp(6), flexDirection: "row", gap: wp(4) }}>
           <View>
-            <Text>Recomended</Text>
+            <Text style={styles.text}>Recomended</Text>
           </View>
           <View>
-            <Text>Popular</Text>
+            <Text style={styles.text}>Popular</Text>
           </View>
         </View>
         {/* Tab Display Section */}
@@ -73,19 +73,25 @@ export default Tab = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: hp(1.2),
+    paddingHorizontal: hp(1.5),
     paddingTop: hp(0.5),
+    backgroundColor: colorScheme1.mode5,
   },
   locationWrapper: {
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
+    marginTop: wp(1),
+    paddingHorizontal: wp(25),
+    // backgroundColor: "red",
   },
-  iconContainer: {
-    marginLeft: wp(2),
-  },
+
   tabDisplaySection: {
     flex: 1,
     marginTop: wp(6),
+  },
+  text: {
+    fontFamily: fonts.font_500,
+    fontSize: hp(2),
   },
 });

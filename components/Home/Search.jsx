@@ -1,30 +1,33 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import { Feather } from "@expo/vector-icons";
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from "react-native-responsive-screen";
+
 import { colorScheme1 } from "../../constants/colors";
 
+import { Searchbar } from "react-native-paper";
+import { fonts } from "../../constants/fonts";
+import { heightPercentageToDP as hp } from "react-native-responsive-screen";
+
 const Search = () => {
+  const [searchQuery, setSearchQuery] = React.useState("");
   return (
-    <View style={styles.container}>
-      <Feather name="search" size={20} color="black" />
-      <Text>Search all restaurants</Text>
-    </View>
+    <Searchbar
+      placeholder="Search all restaurants"
+      onChangeText={setSearchQuery}
+      value={searchQuery}
+      inputStyle={{
+        fontFamily: fonts.font_400,
+        fontSize: hp(2.1),
+        color: "black",
+      }}
+      style={
+        {
+          // fontFamily: fonts.font_700,
+        }
+      }
+    />
   );
 };
 
 export default Search;
 
-const styles = StyleSheet.create({
-  container: {
-    width: "100%",
-    flexDirection: "row",
-    gap: wp(2),
-    alignItems: "center",
-    backgroundColor: colorScheme1.mode2,
-    borderRadius: hp(0.6),
-  },
-});
+const styles = StyleSheet.create({});

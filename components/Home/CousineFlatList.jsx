@@ -1,50 +1,45 @@
-import { View, FlatList, StyleSheet, Text } from "react-native";
+import {
+  View,
+  FlatList,
+  StyleSheet,
+  Text,
+  Image,
+  TouchableOpacity,
+} from "react-native";
 import React from "react";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import { Image } from "expo-image";
+import { fonts } from "../../constants/fonts";
 
 const data = [
   {
-    id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
-    title: "First Item",
-    image: "../../assets/Cousine images/pizza.jpeg",
+    id: "1",
+    title: "Pizza",
+    image: require("../../assets/Cousine images/pizza.jpeg"),
   },
   {
-    id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
-    title: "Second Item",
-    image: "../../assets/Cousine images/pizza.jpeg",
+    id: "2",
+    title: "Burger",
+    image: require("../../assets/Cousine images/burger.jpg"),
   },
   {
-    id: "58694a0f-3da1-471f-bd96-145571e29d72",
-    title: "Third Item",
-    image: "../../assets/Cousine images/pizza.jpeg",
+    id: "3",
+    title: "Noodles",
+    image: require("../../assets/Cousine images/noodles.jpg"),
   },
   {
-    id: "58694a0f-3da1-471f-bd9-145571e29d72",
-    title: "Third Item",
-    image: "../../assets/Cousine images/pizza.jpeg",
+    id: "4",
+    title: "Tacco",
+    image: require("../../assets/Cousine images/tacco.jpeg"),
   },
   {
-    id: "58694a0f-3da1-471f-bd96-145571e2d72",
-    title: "Third Item",
-    image: "../../assets/Cousine images/pizza.jpeg",
+    id: "5",
+    title: "Momos",
+    image: require("../../assets/Cousine images/momos.jpg"),
   },
 ];
-
-const Item = ({ title, image }) => (
-  <View style={styles.item}>
-    <Image
-      style={styles.image}
-      source={require("../../assets/Cousine images/pizza.jpeg")}
-      contentFit="cover"
-      transition={500}
-    />
-    <Text style={styles.title}>{title}</Text>
-  </View>
-);
 
 const CousineFlatList = () => {
   return (
@@ -52,8 +47,19 @@ const CousineFlatList = () => {
       <FlatList
         horizontal={true}
         data={data}
-        renderItem={({ item }) => <Item title={item.title} />}
         keyExtractor={(item) => item.id}
+        showsHorizontalScrollIndicator={false}
+        renderItem={({ item }) => (
+          <TouchableOpacity style={styles.item}>
+            <Image
+              style={styles.image}
+              source={item.image}
+              contentFit="cover"
+              transition={500}
+            />
+            <Text style={styles.title}>{item.title}</Text>
+          </TouchableOpacity>
+        )}
       />
     </>
   );
@@ -63,7 +69,7 @@ export default CousineFlatList;
 
 const styles = StyleSheet.create({
   item: {
-    // backgroundColor: "#f9c2ff",
+    // backgroundColor: "red",
     padding: wp(4),
     marginVertical: wp(3),
     marginRight: wp(5),
@@ -73,5 +79,10 @@ const styles = StyleSheet.create({
     width: wp(20),
     height: wp(20),
     borderRadius: wp(20),
+  },
+  title: {
+    fontFamily: fonts.font_500,
+    fontSize: hp(1.8),
+    textAlign: "center",
   },
 });
