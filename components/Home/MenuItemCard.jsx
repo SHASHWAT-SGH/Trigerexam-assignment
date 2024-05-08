@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import {
   widthPercentageToDP as wp,
@@ -10,7 +10,7 @@ import { colorScheme1 } from "../../constants/colors";
 
 const MenuItemCard = () => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container}>
       <View style={styles.left}>
         <Image
           source={
@@ -38,7 +38,7 @@ const MenuItemCard = () => {
           </View>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
