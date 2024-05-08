@@ -18,6 +18,7 @@ import {
   Rubik_900Black,
   Rubik_900Black_Italic,
 } from "@expo-google-fonts/rubik";
+import { useEffect } from "react";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -38,6 +39,16 @@ export default function AppLayout() {
     Rubik_900Black,
     Rubik_900Black_Italic,
   });
+
+  const hideSpashScreen = async () => {
+    if (fontsLoaded) {
+      SplashScreen.hideAsync();
+    }
+  };
+
+  useEffect(() => {
+    hideSpashScreen();
+  }, [fontsLoaded]);
 
   if (!fontsLoaded) {
     return null;
