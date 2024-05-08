@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "frontend",
+    "name": "frontedn",
     "slug": "frontend",
     "scheme": "your-app-scheme",
     "version": "1.0.0",
@@ -22,7 +22,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.shashwat_singh_8080.frontend"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -30,6 +31,14 @@
     "plugins": [
       "expo-router",
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "f1adcb19-4965-49d9-aa1b-13167e4667dc"
+      }
+    }
   }
 }
