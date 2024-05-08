@@ -4,10 +4,20 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 import { colorScheme1 } from "../../constants/colors";
-
+import { fonts } from "../../constants/fonts";
+import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 export default TabLayout = () => {
   return (
-    <Tabs screenOptions={{ tabBarActiveTintColor: "blue", headerShown: false }}>
+    <Tabs
+      screenOptions={{
+        tabBarActiveTintColor: colorScheme1.mode2,
+        headerShown: false,
+        tabBarLabelStyle: {
+          fontFamily: fonts.font_600,
+          fontSize: hp(1.45),
+        },
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{

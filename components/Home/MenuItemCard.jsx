@@ -8,7 +8,7 @@ import { Image } from "expo-image";
 import { fonts } from "../../constants/fonts";
 import { colorScheme1 } from "../../constants/colors";
 
-const MenuItemCard = () => {
+const MenuItemCard = ({ image, title, subTitle, rating, money, time }) => {
   return (
     <TouchableOpacity style={styles.container}>
       <View style={styles.left}>
@@ -21,20 +21,20 @@ const MenuItemCard = () => {
       </View>
       <View style={styles.right}>
         <View style={styles.title}>
-          <Text style={styles.titleText}>Domino Pizza</Text>
+          <Text style={styles.titleText}>{title}</Text>
         </View>
         <View style={styles.subTitle}>
-          <Text style={styles.subTitleText}>Pizza</Text>
+          <Text style={styles.subTitleText}>{subTitle}</Text>
         </View>
         <View style={styles.description}>
           <View style={styles.descItem}>
-            <Text style={styles.descItemText}>4.5/5</Text>
+            <Text style={styles.descItemText}>{rating}/5</Text>
           </View>
           <View style={styles.descItem}>
-            <Text style={styles.descItemText}>$5</Text>
+            <Text style={styles.descItemText}>${money}</Text>
           </View>
           <View style={styles.descItem}>
-            <Text style={styles.descItemText}>25 min</Text>
+            <Text style={styles.descItemText}>{time} min</Text>
           </View>
         </View>
       </View>
