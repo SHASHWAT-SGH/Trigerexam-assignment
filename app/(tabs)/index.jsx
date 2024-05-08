@@ -221,7 +221,20 @@ export default Tab = () => {
                 setActiveTab("tab1");
               }}
             >
-              <Text style={styles.text}>Recomended</Text>
+              <Text
+                style={[
+                  styles.text,
+                  activeTab == "tab1"
+                    ? {
+                        opacity: 1,
+                      }
+                    : {
+                        opacity: 0.5,
+                      },
+                ]}
+              >
+                Recomended
+              </Text>
             </TouchableOpacity>
           </View>
           <View>
@@ -230,7 +243,20 @@ export default Tab = () => {
                 setActiveTab("tab2");
               }}
             >
-              <Text style={styles.text}>Popular</Text>
+              <Text
+                style={[
+                  styles.text,
+                  activeTab == "tab2"
+                    ? {
+                        opacity: 1,
+                      }
+                    : {
+                        opacity: 0.5,
+                      },
+                ]}
+              >
+                Popular
+              </Text>
             </TouchableOpacity>
           </View>
         </View>
